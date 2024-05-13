@@ -29,4 +29,15 @@ public class SellerService {
 
         return seller;
     }
+
+    public Seller updateOne(int id, Seller sellerToUpdate) {
+        Seller seller = listOne(id);
+
+        seller.setBonus(sellerToUpdate.getBonus());
+        seller.setGender(sellerToUpdate.getGender());
+        seller.setName(sellerToUpdate.getName());
+        seller.setSalary(sellerToUpdate.getSalary());
+
+        return sellerRepository.save(seller);
+    }
 }
