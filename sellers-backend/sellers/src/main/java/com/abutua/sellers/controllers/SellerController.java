@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.abutua.sellers.models.Seller;
 import com.abutua.sellers.services.SellerService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,7 +48,7 @@ public class SellerController {
     }
 
     @PutMapping("sellers/{id}")
-    public ResponseEntity<Seller> putMethodName(@PathVariable int id, @RequestBody Seller sellerToUpdate) {
+    public ResponseEntity<Seller> updateOne(@PathVariable int id, @RequestBody Seller sellerToUpdate) {
         Seller sellerUpdated = sellerService.updateOne(id, sellerToUpdate);
         return ResponseEntity.ok(sellerUpdated);
     }
