@@ -13,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.abutua.sellers.models.Seller;
 import com.abutua.sellers.services.SellerService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class SellerController {
@@ -36,6 +37,12 @@ public class SellerController {
     @GetMapping("/sellers")
     public List<Seller> listAllSellers() {
         return sellerService.listAll();
+    }
+
+    @GetMapping("/sellers/{id}")
+    public ResponseEntity<Seller> listOne(@PathVariable int id) {
+        Seller seller = sellerService.listOne(id);
+        return ResponseEntity.ok(seller);
     }
 
 }
