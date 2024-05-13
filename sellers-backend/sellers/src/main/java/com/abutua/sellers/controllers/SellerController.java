@@ -1,6 +1,7 @@
 package com.abutua.sellers.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.abutua.sellers.models.Seller;
 import com.abutua.sellers.services.SellerService;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 public class SellerController {
@@ -19,7 +21,7 @@ public class SellerController {
     private SellerService sellerService;
 
     @PostMapping("/sellers")
-    public ResponseEntity<Seller> postMethodName(@RequestBody Seller seller) {
+    public ResponseEntity<Seller> createSeller(@RequestBody Seller seller) {
         Seller sellerCreated = sellerService.create(seller);
 
         URI location = ServletUriComponentsBuilder
@@ -30,4 +32,10 @@ public class SellerController {
 
         return ResponseEntity.created(location).body(sellerCreated);
     }
+
+    @GetMapping("/sellers")
+    public List<Seller> listAllSellers() {
+        return sellerService.listAll();
+    }
+
 }

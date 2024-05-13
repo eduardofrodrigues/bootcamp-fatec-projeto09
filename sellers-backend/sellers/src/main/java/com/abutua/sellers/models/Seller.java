@@ -18,6 +18,9 @@ public class Seller {
     private double bonus;
     private int gender;
 
+    public Seller() {
+    }
+
     public Seller(long id, String name, double salary, double bonus, int gender) {
         this.id = id;
         this.name = name;
