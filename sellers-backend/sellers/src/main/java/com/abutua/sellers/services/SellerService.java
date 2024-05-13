@@ -3,7 +3,9 @@ package com.abutua.sellers.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.abutua.sellers.models.Seller;
 import com.abutua.sellers.repositories.SellerRepository;
@@ -19,5 +21,12 @@ public class SellerService {
 
     public List<Seller> listAll() {
         return sellerRepository.findAll();
+    }
+
+    public Seller listOne(int id) {
+        Seller seller = sellerRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seller not found"));
+
+        return seller;
     }
 }
