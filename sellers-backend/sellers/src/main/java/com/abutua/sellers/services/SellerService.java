@@ -1,5 +1,7 @@
 package com.abutua.sellers.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,9 @@ public class SellerService {
 
     public Seller create(Seller seller) {
         return sellerRepository.save(seller);
+    }
+
+    public List<Seller> listAll() {
+        return sellerRepository.findAll();
     }
 }
