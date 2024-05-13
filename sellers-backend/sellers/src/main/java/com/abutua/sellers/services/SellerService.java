@@ -40,4 +40,9 @@ public class SellerService {
 
         return sellerRepository.save(seller);
     }
+
+    public void deleteOne(int id) {
+        Seller seller = listOne(id);
+        sellerRepository.delete(seller);
+    }
 }
