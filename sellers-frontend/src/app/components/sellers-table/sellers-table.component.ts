@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SellerService } from '../../services/seller.service';
 import Seller from '../../interfaces/Seller';
 
@@ -10,12 +10,6 @@ import Seller from '../../interfaces/Seller';
 export class SellersTableComponent {
   constructor(private sellerService: SellerService) { }
 
+  @Input()
   sellers: Seller[] = []
-
-  ngOnInit(): void {
-    this.sellerService.getSellers().subscribe({
-      next: data => this.sellers = data
-    })
-  }
-
 }

@@ -1,0 +1,25 @@
+<div class="container">
+    <form [formGroup]="formGroupSeller">
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <label for="name" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="col-md-4">
+                <label for="gender" class="form-label">Genero:</label>
+                <input type="text" class="form-control" id="gender" formControlName="gender">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="salary" class="form-label">Salário:</label>
+                <input type="text" class="form-control" id="salary" formControlName="salary">
+            </div>
+            <div class="col-md-6">
+                <label for="bonus" class="form-label">Bonus:</label>
+                <input type="text" class="form-control" id="bonus" formControlName="bonus">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="save()">Cadastrar</button>
+    </form>
+</div>

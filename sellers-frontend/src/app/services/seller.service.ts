@@ -14,4 +14,10 @@ export class SellerService {
     return this.http.get<Seller[]>("http://localhost:8080/sellers");
   }
 
+  createSeller(seller: Seller): Observable<Seller> {
+    const response = this.http.post<Seller>("http://localhost:8080/sellers", seller);
+    this.getSellers();
+    return response;
+  }
+
 }
