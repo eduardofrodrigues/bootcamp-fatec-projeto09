@@ -12,10 +12,10 @@
         <tbody *ngFor="let seller of sellers">
             <tr>
                 <th scope="row">{{seller.id}}</th>
-                <td>{{seller.name}}</td>
+                <td>{{seller.name }}</td>
                 <td>{{seller.salary}}</td>
                 <td>{{seller.bonus}}</td>
-                <td>{{seller.gender}}</td>
+                <td>{{genderMapping[seller.gender]}}</td>
             </tr>
         </tbody>
     </table>

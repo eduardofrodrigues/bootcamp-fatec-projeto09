@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   save() {
+    console.log(this.seller)
     this.sellerService.createSeller(this.seller).subscribe({
       next: () => this.getSellers()
     })

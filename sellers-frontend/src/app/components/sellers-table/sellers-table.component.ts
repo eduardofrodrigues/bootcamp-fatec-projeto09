@@ -12,4 +12,10 @@ export class SellersTableComponent {
 
   @Input()
   sellers: Seller[] = []
+
+  genderMapping = [
+    "Feminino",
+    "Masculino",
+    "Outros"
+  ]
 }
