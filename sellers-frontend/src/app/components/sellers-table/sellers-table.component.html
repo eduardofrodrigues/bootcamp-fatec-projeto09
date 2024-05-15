@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Salário</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Genero</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let seller of sellers">
+            <tr>
+                <th scope="row">{{seller.id}}</th>
+                <td>{{seller.name}}</td>
+                <td>{{seller.salary}}</td>
+                <td>{{seller.bonus}}</td>
+                <td>{{seller.gender}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
