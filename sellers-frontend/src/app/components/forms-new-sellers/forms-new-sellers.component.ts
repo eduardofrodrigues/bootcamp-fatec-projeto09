@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Seller from '../../interfaces/Seller';
 
 @Component({
@@ -16,19 +16,26 @@ export class FormsNewSellersComponent {
   @Output()
   saveEmitter = new EventEmitter();
 
+  @Output()
+  cancelEmitter = new EventEmitter();
+
   constructor(private formBuilder: FormBuilder) {
     this.formGroupSeller = this.formBuilder.group({
       id: [""],
-      name: [""],
-      salary: [""],
-      bonus: [""],
-      gender: [""]
+      name: ["", [Validators.required, Validators.minLength(3)]],
+      salary: ["", [Validators.required]],
+      bonus: ["", [Validators.required]],
+      gender: ["", [Validators.required]]
     })
   }
 
   save() {
     Object.assign(this.seller, this.formGroupSeller.value);
     this.saveEmitter.emit();
+  }
+
+  cancel() {
+    this.cancelEmitter.emit();
   }
 
 }

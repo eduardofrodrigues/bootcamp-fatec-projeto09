@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { SellerService } from '../../services/seller.service';
 import Seller from '../../interfaces/Seller';
 
@@ -13,9 +13,17 @@ export class SellersTableComponent {
   @Input()
   sellers: Seller[] = []
 
+  @Output()
+  newSellerEmitter = new EventEmitter();
+
   genderMapping = [
     "Feminino",
     "Masculino",
     "Outros"
   ]
+
+  newSeller() {
+    this.newSellerEmitter.emit();
+  }
+
 }

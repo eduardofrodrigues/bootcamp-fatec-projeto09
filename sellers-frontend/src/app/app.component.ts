@@ -12,6 +12,7 @@ export class AppComponent {
   constructor(private sellerService: SellerService) { }
 
   title = 'sellers-frontend';
+  register = false;
 
   seller: Seller = {} as Seller;
   sellers: Seller[] = []
@@ -34,4 +35,11 @@ export class AppComponent {
     })
   }
 
+  newSellerRegister() {
+    this.register = true;
+  }
+
+  cancelSellerRegister() {
+    this.register = false
+  }
 }
