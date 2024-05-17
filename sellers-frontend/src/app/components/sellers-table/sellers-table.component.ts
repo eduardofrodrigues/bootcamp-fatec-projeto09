@@ -69,6 +69,7 @@ export class SellersTableComponent {
   }
 
   cancelSellerRegister() {
+    this.seller = {} as Seller;
     this.register = false
   }
 }
