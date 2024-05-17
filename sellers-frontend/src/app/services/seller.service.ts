@@ -20,7 +20,7 @@ export class SellerService {
   }
 
   updateSeller(seller: Seller): Observable<void> {
-    const response = this.http.put<void>("http://localhost:8080/sellers", seller);
+    const response = this.http.put<void>(`http://localhost:8080/sellers/${seller.id}`, seller);
     return response;
   }
 

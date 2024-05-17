@@ -1,6 +1,7 @@
 <div class="container my-3">
     <div class="row" *ngIf="register">
-        <app-forms-new-sellers [seller]="seller" (cancelEmitter)="cancelSellerRegister()" (saveEmitter)="save()">
+        <app-forms-new-sellers [seller]="seller" (cancelEmitter)="cancelSellerRegister()" (saveEmitter)="save()"
+            (updateEmitter)="saveUpdated()">
         </app-forms-new-sellers>
     </div>
     <div class="row" *ngIf="!register">

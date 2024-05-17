@@ -19,6 +19,9 @@ export class FormsNewSellersComponent implements OnChanges {
   @Output()
   cancelEmitter = new EventEmitter();
 
+  @Output()
+  updateEmitter = new EventEmitter();
+
   constructor(private formBuilder: FormBuilder) {
     this.formGroupSeller = this.formBuilder.group({
       id: { value: null, disabled: true },
@@ -42,6 +45,11 @@ export class FormsNewSellersComponent implements OnChanges {
 
   cancel() {
     this.cancelEmitter.emit();
+  }
+
+  update() {
+    Object.assign(this.seller, this.formGroupSeller.value);
+    this.updateEmitter.emit();
   }
 
 }

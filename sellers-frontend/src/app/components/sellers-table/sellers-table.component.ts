@@ -43,6 +43,16 @@ export class SellersTableComponent {
     })
   }
 
+  saveUpdated() {
+    this.sellerService.updateSeller(this.seller).subscribe({
+      next: () => {
+        this.getSellers()
+        this.seller = {} as Seller
+        this.register = false;
+      }
+    })
+  }
+
   update(seller: Seller) {
     Object.assign(this.seller, seller)
     this.register = true;
