@@ -27,7 +27,7 @@
                     <td>{{genderMapping[seller.gender]}}</td>
                     <td class="text-end">
                         <button class="btn">
-                            <i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-pencil-square" (click)="update(seller)"></i>
                         </button>
                         <button class="btn">
                             <i class="bi bi-trash" (click)="delete(seller)"></i>

@@ -1,7 +1,13 @@
 <div class="container my-3">
     <form [formGroup]="formGroupSeller">
-        <div class="row">
-            <div class="col-md-8 mb-3">
+        <div class="row mb-3" *ngIf="seller.id">
+            <div class="col-2">
+                <label for="inputId" class="form-label col-1">ID:</label>
+                <input type="text" class="form-control" id="inputId" formControlName="id">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-8">
                 <label for="name" class="form-label">Nome:</label>
                 <input type="text" class="form-control" id="name" formControlName="name">
             </div>

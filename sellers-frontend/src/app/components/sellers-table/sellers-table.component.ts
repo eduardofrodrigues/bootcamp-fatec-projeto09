@@ -43,6 +43,11 @@ export class SellersTableComponent {
     })
   }
 
+  update(seller: Seller) {
+    Object.assign(this.seller, seller)
+    this.register = true;
+  }
+
   delete(seller: Seller) {
     this.sellerService.deleteSeller(seller).subscribe({
       next: () => this.getSellers()
