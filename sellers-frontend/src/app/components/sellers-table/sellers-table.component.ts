@@ -10,11 +10,9 @@ import Seller from '../../interfaces/Seller';
 export class SellersTableComponent {
   constructor(private sellerService: SellerService) { }
 
-  @Input()
+  seller: Seller = {} as Seller;
   sellers: Seller[] = []
-
-  @Output()
-  newSellerEmitter = new EventEmitter();
+  register = false;
 
   genderMapping = [
     "Feminino",
@@ -23,7 +21,35 @@ export class SellersTableComponent {
   ]
 
   newSeller() {
-    this.newSellerEmitter.emit();
+    this.register = true;
+  }
+
+
+  ngOnInit(): void {
+    this.getSellers()
+  }
+
+  getSellers() {
+    this.sellerService.getSellers().subscribe({
+      next: data => this.sellers = data
+    })
+  }
+
+  save() {
+    this.sellerService.createSeller(this.seller).subscribe({
+      next: () => {
+        this.getSellers()
+        this.register = false;
+      }
+    })
+  }
+
+  newSellerRegister() {
+    this.register = true;
+  }
+
+  cancelSellerRegister() {
+    this.register = false
   }
 
 }

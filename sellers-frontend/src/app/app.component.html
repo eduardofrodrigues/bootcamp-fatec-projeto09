@@ -4,9 +4,5 @@
   </div>
 </nav>
 <div class="container">
-  <app-forms-new-sellers *ngIf="register" [seller]="seller" (cancelEmitter)="cancelSellerRegister()"
-    (saveEmitter)="save()">
-  </app-forms-new-sellers>
-  <app-sellers-table *ngIf="!register" [sellers]="sellers" (newSellerEmitter)="newSellerRegister()">
-  </app-sellers-table>
+  <app-sellers-table></app-sellers-table>
 </div>
