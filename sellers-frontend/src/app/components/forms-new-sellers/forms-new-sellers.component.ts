@@ -22,9 +22,9 @@ export class FormsNewSellersComponent {
   constructor(private formBuilder: FormBuilder) {
     this.formGroupSeller = this.formBuilder.group({
       id: [""],
-      name: ["", [Validators.required, Validators.minLength(3)]],
-      salary: ["", [Validators.required]],
-      bonus: ["", [Validators.required]],
+      name: ["", [Validators.required, Validators.minLength(5)]],
+      salary: ["", [Validators.required, Validators.min(0.1)]],
+      bonus: ["", [Validators.required, Validators.min(0), Validators.max(100)]],
       gender: ["", [Validators.required]]
     })
   }

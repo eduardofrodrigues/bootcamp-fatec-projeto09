@@ -24,7 +24,6 @@ export class SellersTableComponent {
     this.register = true;
   }
 
-
   ngOnInit(): void {
     this.getSellers()
   }
