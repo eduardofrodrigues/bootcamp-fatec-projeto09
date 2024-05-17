@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SellersTableComponent } from './components/sellers-table/sellers-table.component';
 import { FormsNewSellersComponent } from './components/forms-new-sellers/forms-new-sellers.component';
 import { registerLocaleData } from '@angular/common';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 registerLocaleData(localePt, 'pt')
 
@@ -19,7 +21,9 @@ registerLocaleData(localePt, 'pt')
   declarations: [
     AppComponent,
     SellersTableComponent,
-    FormsNewSellersComponent
+    FormsNewSellersComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
