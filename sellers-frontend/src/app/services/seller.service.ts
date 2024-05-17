@@ -16,7 +16,11 @@ export class SellerService {
 
   createSeller(seller: Seller): Observable<Seller> {
     const response = this.http.post<Seller>("http://localhost:8080/sellers", seller);
-    this.getSellers();
+    return response;
+  }
+
+  deleteSeller(seller: Seller): Observable<void> {
+    const response = this.http.delete<void>(`http://localhost:8080/sellers/${seller.id}`)
     return response;
   }
 
