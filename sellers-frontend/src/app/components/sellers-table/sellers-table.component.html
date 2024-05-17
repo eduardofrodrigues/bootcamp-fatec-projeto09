@@ -15,6 +15,7 @@
                     <th scope="col">Salário</th>
                     <th scope="col">Bonus</th>
                     <th scope="col">Genero</th>
+                    <th scope="col" class="text-end pe-4">Opções</th>
                 </tr>
             </thead>
             <tbody *ngFor="let seller of sellers">
@@ -24,6 +25,14 @@
                     <td>{{seller.salary | currency: 'BRL'}}</td>
                     <td>{{seller.bonus | number: '1.2-3'}} %</td>
                     <td>{{genderMapping[seller.gender]}}</td>
+                    <td class="text-end">
+                        <button class="btn">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button class="btn">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
