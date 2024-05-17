@@ -52,4 +52,8 @@ export class FormsNewSellersComponent implements OnChanges {
     this.updateEmitter.emit();
   }
 
+  selectedGender(gender1: any, gender2: any) {
+    return gender1 && gender2 ? gender1 === gender2 : false;
+  }
+
 }

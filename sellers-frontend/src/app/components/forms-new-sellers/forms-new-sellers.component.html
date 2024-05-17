@@ -13,8 +13,9 @@
             </div>
             <div class="col-md-4">
                 <label for="gender" class="form-label">Genero:</label>
-                <select class="form-select" id="gender" formControlName="gender">
-                    <option [defaultSelected]=true>Selecione uma opção</option>
+                <select class="form-select" id="gender" formControlName="gender" [compareWith]="selectedGender"
+                    aria-label="Selecione um Genero">
+                    <option disabled>Selecione um Genero</option>
                     <option value="0">Feminino</option>
                     <option value="1">Masculino</option>
                     <option value="2">Outros</option>
