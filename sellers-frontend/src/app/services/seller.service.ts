@@ -19,6 +19,11 @@ export class SellerService {
     return response;
   }
 
+  updateSeller(seller: Seller): Observable<void> {
+    const response = this.http.put<void>("http://localhost:8080/sellers", seller);
+    return response;
+  }
+
   deleteSeller(seller: Seller): Observable<void> {
     const response = this.http.delete<void>(`http://localhost:8080/sellers/${seller.id}`)
     return response;
