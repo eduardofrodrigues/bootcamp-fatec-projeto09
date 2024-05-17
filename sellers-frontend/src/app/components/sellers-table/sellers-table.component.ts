@@ -43,6 +43,12 @@ export class SellersTableComponent {
     })
   }
 
+  delete(seller: Seller) {
+    this.sellerService.deleteSeller(seller).subscribe({
+      next: () => this.getSellers()
+    })
+  }
+
   newSellerRegister() {
     this.register = true;
   }
@@ -50,5 +56,4 @@ export class SellersTableComponent {
   cancelSellerRegister() {
     this.register = false
   }
-
 }
