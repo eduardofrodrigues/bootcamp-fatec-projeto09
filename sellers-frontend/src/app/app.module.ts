@@ -14,6 +14,7 @@ import { FormsNewSellersComponent } from './components/forms-new-sellers/forms-n
 import { registerLocaleData } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 registerLocaleData(localePt, 'pt')
 
@@ -23,7 +24,8 @@ registerLocaleData(localePt, 'pt')
     SellersTableComponent,
     FormsNewSellersComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
