@@ -31,11 +31,30 @@
                             <i class="bi bi-pencil-square" (click)="update(seller)"></i>
                         </button>
                         <button class="btn">
-                            <i class="bi bi-trash" (click)="delete(seller)"></i>
+                            <i class="bi bi-trash" (click)="delete(confimationModal, seller)"></i>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <ng-template #confimationModal let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title">Remover Vendedor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="modal.close()"></button>
+        </div>
+        <div class="modal-body">
+            <p>Confirma a remoção do vendedor: </p>
+            <p>ID: {{sellerToDelete.id}}</p>
+            <p>Nome: <strong>{{sellerToDelete.name}}</strong> </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger col-3" data-bs-dismiss="modal"
+                (click)="modal.close(true)">Confirmar</button>
+            <button type="button" class="btn btn-primary col-3" (click)="modal.close()">Cancelar</button>
+        </div>
+    </ng-template>
+
 </div>
