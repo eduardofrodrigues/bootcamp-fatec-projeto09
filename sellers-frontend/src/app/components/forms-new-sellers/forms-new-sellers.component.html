@@ -1,5 +1,5 @@
 <div class="container my-3">
-    <form [formGroup]="formGroupSeller">
+    <form [formGroup]="formGroupSeller" #ngFormSeller="ngForm">
         <div class="row mb-3" *ngIf="seller.id">
             <div class="col-2">
                 <label for="inputId" class="form-label col-1">ID:</label>
@@ -10,32 +10,53 @@
             <div class="col-md-8">
                 <label for="name" class="form-label">Nome:</label>
                 <input type="text" class="form-control" id="name" formControlName="name">
+                <div *ngIf="ngFormSeller.submitted">
+                    <small *ngIf="sfgName?.errors?.['required']" class="form-text text-danger">*Nome é
+                        requerido!</small>
+                    <small *ngIf="sfgName?.errors?.['minlength']" class="form-text text-danger">*Tamanho mínimo de 5
+                        caracteres!</small>
+                </div>
             </div>
             <div class="col-md-4">
-                <label for="gender" class="form-label">Genero:</label>
+                <label for="gender" class="form-label">Gênero:</label>
                 <select class="form-select" id="gender" formControlName="gender" [compareWith]="selectedGender"
-                    aria-label="Selecione um Genero">
-                    <option disabled>Selecione um Genero</option>
+                    aria-label="Selecione um Gênero">
+                    <option disabled>Selecione um Gênero</option>
                     <option value="0">Feminino</option>
                     <option value="1">Masculino</option>
                     <option value="2">Outros</option>
                 </select>
+                <div *ngIf="ngFormSeller.submitted">
+                    <small *ngIf="sfgGender?.errors?.['required']" class="form-text text-danger">*Gênero é
+                        requerido!</small>
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="salary" class="form-label">Salário:</label>
                 <input type="text" class="form-control" id="salary" formControlName="salary">
+                <div *ngIf="ngFormSeller.submitted">
+                    <small *ngIf="sfgSalary?.errors?.['required']" class="form-text text-danger">*Salário é
+                        requerido!</small>
+                    <small *ngIf="sfgSalary?.errors?.['min']" class="form-text text-danger">*Digite um valor maior que
+                        0!</small>
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="bonus" class="form-label">Bonus:</label>
                 <input type="text" class="form-control" id="bonus" formControlName="bonus">
+                <div *ngIf="ngFormSeller.submitted">
+                    <small *ngIf="sfgBonus?.errors?.['required']" class="form-text text-danger">*Bônus é
+                        requerido!</small>
+                    <small *ngIf="sfgBonus?.errors?.['min'] || sfgBonus?.errors?.['max']"
+                        class="form-text text-danger">*Digite um valor entre
+                        0 e 100!</small>
+                </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary col-1" *ngIf="!seller.id" (click)="save()"
-            [disabled]="formGroupSeller.invalid">Cadastrar</button>
-        <button type="submit" class="btn btn-primary col-1" *ngIf="seller.id" (click)="update()"
-            [disabled]="formGroupSeller.invalid">Salvar</button>
+        <button type="submit" class="btn btn-primary col-1" *ngIf="!seller.id" (click)="save()">Cadastrar</button>
+        <button type="submit" class="btn btn-primary col-1" *ngIf="seller.id" (click)="update()">Salvar</button>
         <button type="button" class="btn btn-danger ms-3 col-1" (click)="cancel()">Cancelar</button>
     </form>
 </div>

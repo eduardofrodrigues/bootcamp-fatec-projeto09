@@ -39,8 +39,10 @@ export class FormsNewSellersComponent implements OnChanges {
   }
 
   save() {
-    Object.assign(this.seller, this.formGroupSeller.value);
-    this.saveEmitter.emit();
+    if (this.formGroupSeller.valid) {
+      Object.assign(this.seller, this.formGroupSeller.value);
+      this.saveEmitter.emit();
+    }
   }
 
   cancel() {
@@ -48,12 +50,19 @@ export class FormsNewSellersComponent implements OnChanges {
   }
 
   update() {
-    Object.assign(this.seller, this.formGroupSeller.value);
-    this.updateEmitter.emit();
+    if (this.formGroupSeller.valid) {
+      Object.assign(this.seller, this.formGroupSeller.value);
+      this.updateEmitter.emit();
+    }
   }
 
   selectedGender(gender1: any, gender2: any) {
     return gender1 && gender2 ? gender1 === gender2 : false;
   }
+
+  get sfgName() { return this.formGroupSeller.get("name") }
+  get sfgSalary() { return this.formGroupSeller.get("salary") }
+  get sfgBonus() { return this.formGroupSeller.get("bonus") }
+  get sfgGender() { return this.formGroupSeller.get("gender") }
 
 }
