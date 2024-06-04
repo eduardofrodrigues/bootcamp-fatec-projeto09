@@ -42,8 +42,8 @@ public class SellerController {
     }
 
     @GetMapping
-    public List<Seller> listAllSellers() {
-        return sellerService.listAll();
+    public ResponseEntity<List<Seller>> listAllSellers() {
+        return ResponseEntity.ok(sellerService.listAll());
     }
 
     @GetMapping("{id}")
