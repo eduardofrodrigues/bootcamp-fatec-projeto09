@@ -12,16 +12,16 @@ public class Seller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
-    private double salary;
-    private double bonus;
-    private int gender;
+    private Double salary;
+    private Double bonus;
+    private Integer gender;
 
     public Seller() {
     }
 
-    public Seller(long id, String name, double salary, double bonus, int gender) {
+    public Seller(Long id, String name, Double salary, Double bonus, Integer gender) {
         this.id = id;
         this.name = name;
         this.salary = salary;
@@ -29,11 +29,11 @@ public class Seller {
         this.gender = gender;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,27 +45,27 @@ public class Seller {
         this.name = name;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
-    public double getBonus() {
+    public Double getBonus() {
         return bonus;
     }
 
-    public void setBonus(double bonus) {
+    public void setBonus(Double bonus) {
         this.bonus = bonus;
     }
 
-    public int getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
